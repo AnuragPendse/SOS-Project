@@ -1,0 +1,442 @@
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
+\usepackage{mathrsfs}
+
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Anurag Abhijit Pendse}
+\lhead{SOS 2021}
+\cfoot{\thepage}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\numberwithin{equation}{section}
+\title{\Huge Classical Mechanics}
+\author{\Large Anurag Abhijit Pendse\\
+        \small 200260008\\
+       \normalsize Mentor: Sanaa Sharma
+             }
+\date{\large Summer 2021}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\section*{Introduction}
+Classical Mechanics is one of the most important topics in Physics, not only from a theory standpoint but also from a historical one.
+The observations of Galileo and the laws given by Newton mark the beginning of the study of physical phenomena with a mathematical basis.\\
+Newton's three laws gave people a surefire method to analyse the evolution and behavior of static and dynamic systems. However, they didn't seem to have explanations of their own.As the study of Physics grew, many observations were made regarding different systems where explanation of the phenomena using Newtons Laws was tedious.\\
+A more mathematical formulation of mechanics would give people a trustworthy method to analyse any system they wanted (Note that all of this was in the mid $18^{th}$ century to the early-mid $19^{th}$ century). The work of people like Euler, Lagrange, Hamilton and many others gave us the theory of classical mechanics we have today.\\
+The formulations and principles given in this classical theory \footnote{Here, 'Classical' is used to differentiate it from modern theories of Quantum Mechanics and Relativity} are more fundamental than Newton's laws and have found themselves as fundamental principles of modern theories as well.
+
+
+\section{Euler-Lagrange Equations}
+\subsection{The Principle of Least Action}
+\subsubsection{Functionals}
+To understand the PLA, we need to first understand functionals.\\
+\begin{definition}
+A Functional is a mapping from a space S to real/complex numbers
+\end{definition}
+The functional we will deal with will be an integral of the form
+$$F=\int_{x_1}^{x_2}f(y,y',x)dx$$
+where $y$ is a function of the independent variable $x$ and $y'$ is its derivative.\\
+The condition we want to explore is when the value of the functional becomes stationary i.e. $\delta F=0$.\\
+We can see from the Calculus of Variations\footnote{Proof is given in the Appendix}
+\begin{equation} \label{1.1}
+\frac{d}{dx}\left(\frac{\partial f}{\partial y'}\right)-\frac{\partial f}{\partial y}=0
+\end{equation}
+This expression is of paramount importance in the further discussion.
+\subsubsection{Action}
+One of the most important quantities we will see in this theory will be the Action. The role this quantity plays is just as glamorous as its name suggests. 
+The Action (denoted by $S$) is defined as follows 
+$$ S= \int_{t_1}^{t_2}\mathscr{L}dt $$
+$\mathscr{L}$ is known as the Lagrangian where
+$$ \mathscr{L}=T-V $$
+where $T$ is the kinetic energy and $V$ is the kinetic energy of the system.\\
+We have $Hamilton's Principle$ as :\\
+$The$ $motion$ $of$ $the$ $system$ $from$ $time$ $t_1$ $to$ $time$ $t_2$ $is$ $such$ $that$ $the$ $Action$ $has$ $a$ $stationary$ $value$ $for$ $the$ $actual$ $path$ $of$ $motion$\\
+In essence, $Hamilton's$ $Principle$ tells us that 
+\begin{equation} \label{1.2} 
+\delta S=0
+\end{equation}
+We see from \ref{1.1} and \ref{1.2} that we get 
+\begin{equation} \label{1.3}
+\frac{d}{dt}\left( \frac{\partial \mathscr{L}}{\partial \dot{x_{i}}} \right) - \frac{\partial \mathscr{L}}{\partial x_{i}} =0
+\end{equation}
+Where $x_{i}$ is a particular coordinate and $\dot{x_{i}}$ is its time derivative \footnote{Here, I have referred to the derivatives in regular Cartesian Coordinates. I will state the result for generalised coordinates in the next section} 
+\subsubsection{Generalised Coordinates}
+Most of the times, systems are dependent on several independent variables. 
+Each of these variables determines the position of the system.
+These variables will not necessarily have the dimension of length.(Angles can also be called coordinates if they are pertinent to determining the position of the system)\\
+From here onwards, these generalised coordinates will be denoted as $q_{i}$ and their time derivatives as $\dot{q_{i}}$ \footnote{Since all of the $q_{i}$ are independent, we have $\frac{\partial q_{i}}{\partial q_{j}}=\delta_{ij}$ where $\delta_{ij}$ is the Kröneckar delta. }
+
+\subsubsection{The Euler Lagrange Equations}
+We can see that the Lagrangian will be a function all the $q_{i}$, $\dot{q_{i}}$ and $t$.\\
+So we will obtain the Euler-Lagrange Equation for each coordinate as
+\begin{equation}\label{1.4}
+    \frac{d}{dt}\frac{\partial \mathscr{L}}{\partial \dot{q_{i}}} - \frac{\partial \mathscr{L}}{\partial q_{i}}=0
+\end{equation}
+
+\subsection{D'Alembert's Principle}
+\subsubsection{Forces of Constraint}
+A system is almost never free to move however it wants. It has some constraints put on it.\\
+We will call the forces which enforce these constraints as forces of constraint.\\
+We can categorise these constraint forces into categories:
+\begin{definition}(Holonomic Constraints)
+The constraints which can be expressed as $f(q_{i},\dot{q_{i}},t)=0$ 
+\end{definition}
+Non-Holonomic Constraints are constraints which are not holonomic.
+\begin{definition}(Scleronomous Constraints)
+Constraints which have no explicit time dependence
+\end{definition}
+On the other hand, Rheonomous constraints have an explicit time dependence\\
+The addition of a constraint reduces the degrees of freedom of the system by 1.
+\subsubsection{D'Alembert's Principle}
+\footnote{The Einstein Summation convention will be used here onwards unless otherwise specified}We will now be looking at a system of particles upon which an external force acts along with the constraint forces.
+We have
+\begin{equation}\label{1.5}
+\textbf{F}_{i}=\dot{\textbf{{p}}}_{i}    
+\end{equation}
+If we add a negative of the rate of change of momentum to both sides of the above equation , we see that if the system was acted upon a force of the form
+$\textbf{F}_{i} -\dot{\textbf{p}}_{i}$ ,
+we would have the system to be in equilibrium.\\
+So, the virtual work done by this force would be 0.
+So, we have 
+\begin{equation} \label{1.6}    
+(\textbf{F}_{i}-\dot{\textbf{p}}_{i}) \cdot \delta \textbf{r}_{i}=0
+\end{equation}
+We can decompose the net force into the applied forces and the constraint forces. The virtual work done by the constraint forces would be zero.
+So, we have arrived at $D'Alembert's$ $Principle$: 
+\begin{equation}\label{1.7}
+    (\textbf{F}_{i}^{(a)}-\dot{\textbf{p}}_{i})\cdot \delta \textbf{r}_{i}=0
+\end{equation}
+where $\textbf{F}_{i}^{(a)}$ is the applied force.
+\subsubsection{Euler-Lagrange Equations}
+We need to move on to obtain the ELE's from D'Alembert's Principle.
+Since virtual displacements hold time constant, we have 
+\begin{equation} 
+    \delta \textbf{r}_{i} = \frac{\partial \textbf{r}_{i}}{\partial q_{i}} \delta q_{i}
+\end{equation}
+Also,
+\begin{equation} 
+    \textbf{v}_{i} = \frac{\partial \textbf{r}_{i}}{\partial q_{j}} \dot{q}_{j} + \frac{\partial \textbf{r}_{i}}{\partial t}
+\end{equation}
+Using these two equations, we can manipulate \ref{1.7} to obtain
+\begin{equation} \label{1.9}
+    \left(\left[ \frac{d}{dt}\left( \frac{\partial T}{\partial \dot{q}_{j}}\right) - \frac{\partial T}{\partial q_{j}}\right] - Q_{j}\right)\delta q_{j} = 0 
+\end{equation}
+Where $Q_{j}$ is the generalized force given by $\textbf{F}_{i}^{(a)}\cdot \frac{\partial \textbf{r}_{i}}{\partial q_{j}} $ and T is the net kinetic energy of the system given by the traditional formula of $\frac{1}{2}m_{i}v_{i}^{2}$.\\
+We can choose the $q_{i}$ to be independent and their variations to be in compliance with the constraints.
+Thus, we obtain 
+\begin{equation}
+    \frac{d}{dt}\left(\frac{\partial T}{\partial \dot{q}_{i}}\right)-\frac{\partial T}{\partial q_{i}} = Q_{i}
+\end{equation}
+If the $\textbf{F}_{i}^{(a)}$ are derivable from a potential as $-\nabla_{i}V$, we get 
+$$ Q_{i}=-\frac{\partial V}{\partial q_{i}}$$
+Further,if V is independent of the generalised velocities, we get 
+\begin{equation}
+    \frac{d}{dt}\left( \frac{\partial \mathscr{L}}{\partial \dot{q}_{i}}\right)-\frac{\partial \mathscr{L}}{\partial q_{i}}=0 
+\end{equation}
+Where $\mathscr{L}$ is the Lagrangian as we defined before.\\
+It is interesting to note that the Lagrangian is not necessarily a unique quantity. Even if we add a term of the form $\frac{dF(q_{i},t)}{dt}$ to the Lagrangian, the ELE's remain unchanged.\footnote{Proof in appendix}
+\subsubsection{Generalised Potentials}
+In the last section, $F_{i}^{(a)}$ was assumed to be the gradient of a scalar potential. Unfortunately, this assumption leaves out several important forces, most notably the Lorentz Force.\\
+We can slightly generalise the concept of potential as
+\begin{equation}
+    Q_{j}= -\frac{\partial U}{\partial q_{j}} + \frac{d}{dt}\left(\frac{\partial U}{\partial \dot{q_{j}}} \right)
+\end{equation}
+This allows us to retain our definition of the Lagrangian as $T-U$.
+For the Lorentz force, we can show that
+\begin{equation}
+    U = q\phi - q\textbf{A}\cdot \textbf{v} 
+\end{equation}
+Where $\phi$ is the scalar potential for the fields and \textbf{A} is the vector potential for the fields.\\
+Even after generalising the concept of the potential, we still miss out on some important forces like friction which we cannot express in the required way.\\
+Most of the times, we have the magnitude of the frictional force in a particular direction to be proportional to the velocity of the particle in that direction.
+$$F_{(fric)x}=-kv_{x}$$
+For these kinds of forces, we can define a Dissapation function such that
+\begin{equation}
+    \textbf{F}_{fric} = -\nabla _{v} \mathscr{F}
+\end{equation}
+Thus, we can also obtain 
+\begin{equation}
+   Q_{j}=-\frac{\partial \mathscr{F}}{\partial \dot{q}_{j}}
+\end{equation}
+So, setting our $\mathscr{F}$ according to the systems frictional forces and setting our $\mathscr{L}$ as $T-U$ where U is the generalised potential, we can write the ELE's as 
+\begin{equation}
+    \frac{d}{dt}\left( \frac{\partial \mathscr{L}}{\partial \dot{q}_{i}}\right)-\frac{\partial \mathscr{L}}{\partial q_{i}} + \frac{\partial \mathscr{F}}{\partial \dot{q_{i}}}=0
+\end{equation}
+
+\section{Conservation Laws, Symmetry and Noether's Theorem}
+We have seen the extension of regular coordinates to a generalised set of coordinates. With the benefit of foresight, we will find it useful to define a quantity called 'conjugate momentum'.as 
+\begin{equation}
+    p_{i}=\frac{\partial \mathscr{L}}{\partial \dot{q}_{i}}
+\end{equation}
+Substituting this in the ELE's, we obtain 
+\begin{equation}
+    \dot{p}_{i}=\frac{\partial \mathscr{L}}{\partial q_{i}}
+\end{equation}
+\begin{definition}(Cyclic Coordinates)
+Coordinates upon which the Lagrangian doesn't explicitly depend.
+\end{definition}
+If $q_{i}$ is a cyclic coordinate, we have 
+$$\frac{\partial \mathscr{L}}{\partial q_{i}}=0$$
+Thus, if $p_{i}$ is the conjugate momentum corresponding to the cyclic coordinate $q_{i}$, we have 
+\begin{equation}
+    \dot{p}_{i}=0
+\end{equation}
+Thus, $p_{i}$ is time invariant i.e. it is conserved.\\
+A coordinate being cyclic means that the system is symmetric about that coordinate.
+For any number of symmetries, we have the exact same number of conserved quantities.\\
+
+We also have \textit{Noether's Theorem} as :\\
+\textit{With every continuous symmetry of the Lagrangian, there exists one conserved quantity associated with it }\\
+Note that the above theorem makes no reference to cyclic coordinates, rather it refers to symmetry under a particular transformation.\\
+Let $\mathscr{L}(q_{i},\dot{q}_{i},t)$ be the Lagrangian of the system.\\
+Let $q_{i}\rightarrow q_{i}(s)$ be the transformation we make the system undergo.
+We have 
+\begin{equation}
+    \frac{d\mathscr{L}}{ds} =0
+\end{equation}
+We can show that the quantity $p_{i}\frac{dq_{i}(s)}{ds}$ \footnote{Note that here, there is a sum over i. We sum over all possible $q_{i}(s)$ and the corresponding $p_{i}$ }is conserved.
+For N such symmetries, we can show that there exist N conserved quantities.
+For a cyclic coordinate, $q_{i}(s)$ simply reduces to $q_{i}+ c$ where $c$ is a constant.
+\section{Hamiltonian formalism}
+Hamiltonian formalism is a form of expressing the equations of motion in terms of a new and more convenient variable as well as the canonical variables $(p,q)$.\\
+\subsection{Legendre transformation}
+Let 
+$$ df=udx+vdy$$
+where 
+$$\frac{\partial f}{\partial x}=u, \frac{\partial f}{\partial y}=v$$
+If we want to change the basis from (x,y) to (u,y) , we introduce a new variable g defined as 
+$$g=f-ux$$
+Thus , we see that 
+$$dg=vdy-xdu$$
+and 
+$$v=\frac{\partial g}{\partial y}, x=-\frac{\partial g}{\partial u}$$
+Now, for the lagrangian, we have 
+$$d\mathscr{L}=\frac{\partial \mathscr{L}}{\partial q_{i}}dq_{i}+\frac{\partial \mathscr{L}}{\partial \dot{q}_{i}}d\dot{q}_{i}+\frac{\partial \mathscr{L}}{\partial t}dt$$
+To eliminate $\dot{q}_{i}$ as the independent variable, we can do the following:
+\begin{equation}
+    H= p_{i}\dot{q}_{i}-\mathscr{L}
+\end{equation}
+Thus, we get 
+\begin{equation}
+    dH=\dot{q}_{i}dp_{i}-\dot{p}_{i}dq_{i}-\frac{\partial \mathscr{L}}{\partial t}dt
+\end{equation}
+\subsection{Canonical Equations of Hamilton}
+From we did in the last section, we can easily see that we have the following relations:
+\begin{equation}
+    \dot{p}_{i}=-\frac{\partial H}{\partial q_{i}}
+\end{equation}
+\begin{equation}
+    \dot{q}_{i}=\frac{\partial H}{\partial p_{i}}
+\end{equation}
+\begin{equation}
+    \frac{\partial \mathscr{L}}{\partial t}= -\frac{\partial H}{\partial t}
+\end{equation}
+These equations constitute $The$ $Canonical$ $Equations$ $of$ $Hamilton$\\
+We can further derive 
+\begin{equation}
+    \frac{dH}{dt}=\frac{\partial H}{\partial t}
+\end{equation}
+Further, if V is velocity independent and T is a homogenous quadratic function of the velocities, we can show that 
+$$H=T+V$$
+This form is identical to our expression for the total energy of the system.
+Thus,if H has no explicit time dependence, H is a time-conserved quantity.
+So for the special systems where H is the total energy, we have shown Energy Conservation to hold.\\
+Generally, if H has an explicit time dependence, there is another system exchanging energy with the one under consideration.\\
+We can also obtain the canonical equations from the variational principle as we 
+had done before.\\
+We again use Hamilton's principle and we substitute $\dot{q}_{i}p_{i}-H$ in place of the Lagrangian.
+Then, again obtain the Euler Lagrange Equations , this time in terms of the canonical variables and the canonical equations of motion pop out.
+\section{Canonical Transformations}
+Often, the process of solving the problem at hand can be simplified by some variables becoming cyclic. However, things aren't always so simple. Fortunately, we can change coordinates such that several variables become cyclic, thus simplifying our task.
+We can express these transformations as
+$$Q_{i}=Q_{i}(q,p,t)$$
+and
+$$P_{i}=P_{i(q,p,t)}$$
+These will act as our new set of variables.
+We will also have our new Hamiltonian in this set of coordinates:$K(Q,P,t)$.\\
+In this new system as well, we have the set of Hamilton's equations:
+\begin{equation}
+        \frac{\partial K}{\partial Q_{i}}=-P_{i}
+\end{equation}
+\begin{equation*}
+    \frac{\partial K}{\partial P_{i}}=Q_{i}
+\end{equation*}
+Along with these, we still expect the action integrals to be stationary.
+So, we have 
+\begin{equation}
+ \delta \int_{t_{1}}^{t_{2}}(p_{i}\dot{q}_{i}-H)dt =0
+\end{equation}
+\begin{equation*}    
+    \delta \int_{t_{1}}^{t_{2}}(P_{i}\dot{Q}_{i}-K)dt =0
+\end{equation*}
+From these, we can conclude that the integrands are related as :
+\begin{equation}
+    \lambda (p_{i}\dot{q}_{i}-H)=P_{i}\dot{Q}_{i}-K+\frac{dF}{dt}
+\end{equation}
+where F is a function depending on the phase space coordinates with continuous second derivatives.
+We call a transformation as a canonical transformation if we have $\lambda = 1$
+i.e.
+\begin{equation}
+    p_{i}\dot{q}_{i}-H=P_{i}\dot{Q}_{i}-K+\frac{dF}{dt}
+\end{equation}
+
+\subsection{Harmonic Oscillator using Canonical Transformations}
+Before starting off with the actual analysis of the oscillator, it would be beneficial to investigate the nature of F. We can consider cases where F only a couple of the q's,p's,Q's and P's.F is of paramount importance and it is the generating function of the transformation.\\
+If F is only a function of q,Q and t, we get 
+\begin{equation}
+    \frac{dF}{dt}=\frac{\partial F}{\partial q_{i}}\dot{q}_{i}+\frac{\partial F}{\partial Q_{i}}\dot{Q}_{i}+\frac{\partial F}{\partial t}
+\end{equation}
+Putting this into (4.4), we get 
+\begin{equation}
+    p_{i}\dot{q}_{i} - H= P_{i}\dot{Q}_{i}-K+\frac{\partial F}{\partial q_{i}}\dot{q}_{i}+\frac{\partial F}{\partial Q_{i}}\dot{Q}_{i}+\frac{\partial F}{\partial t}
+\end{equation}
+In this, we require coefficients of $\dot{q}_{i}$ and $\dot{Q}_{i}$ to be equal(Independence of the two velocities). Thus, we get 
+$$\frac{\partial F}{\partial q_{i}}=p_{i}$$
+and
+$$\frac{\partial F}{\partial Q_{i}}=-P_{i}$$
+We are also left with 
+$$H+\frac{\partial F}{\partial t}=K$$
+Now, moving on to the Harmonic Oscillator, we have the Hamiltonian defined as
+\begin{equation}
+H= \frac{p^2}{2m}+\frac{1}{2}m\omega^2q^2
+\end{equation}
+Looking at the form of this equation, we can try out a transformation of the form
+$$q=f(P)cosQ$$
+$$p=\frac{f(P)}{m\omega}sinQ$$
+where f(P) is some function of P alone.
+Trying out a function of the form F(q,Q) as the generating function.
+Trying out
+$$F=\frac{m\omega q^2}{2}cotQ$$
+From the equations we got, we get 
+$$p=m\omega q cotQ$$
+$$P=\frac{m\omega q^2}{2sin^{2}Q}$$
+So, we get 
+\begin{equation}
+    q=\sqrt{\frac{2P}{m\omega}}sinQ
+\end{equation}
+So, we get 
+$$f(P)=\sqrt{\frac{2P}{m\omega}}$$
+and
+$$p=\sqrt{2Pm\omega}cosQ$$
+We get 
+\begin{equation}
+    H=\omega P
+\end{equation}
+H is cyclic in Q.
+So,P is a constant.
+We get 
+$$P=\frac{E}{\omega}$$
+and
+$$\dot{Q}=\omega$$
+This has the clear solution
+\begin{equation}
+    Q=\omega t + \alpha
+\end{equation}
+We get a solution for p and q as:
+\begin{equation}
+    q=\sqrt{\frac{2E}{m\omega^{2}}}sin(\omega t + \alpha)
+\end{equation}
+\begin{equation*}
+    p=\sqrt{2mE}cos(\omega t + \alpha)
+\end{equation*}
+In p-q phase space, the plot is an ellipse.
+\subsection{Poisson Brackets}
+Poisson Brackets are mathematical operators with respect to the canonical variables acting on two functions as 
+\begin{equation}
+    [F,G]=\frac{\partial F}{\partial q_{i}}\frac{\partial G}{\partial p_{i}}-\frac{\partial F}{\partial p_{i}}\frac{\partial G}{\partial q_{i}}
+\end{equation}
+This definition gives several identities
+$$[A,B+C]=[A,B]+[A,C]$$
+$$[kA,B]=k[A,B]$$
+$$[AB,C]=[A,C]B+[B,C]A$$
+$$[A,B]=-[B,A]$$
+Another beautiful identity is Jacobi's Identity:
+$$[A,[B,C]]+[B,[C,A]]+[C,[A,B]]=0$$
+Poisson Bracket's themselves have several interesting formulations in symmetries.However we will look at the Poisson Brackets involving the Hamiltonian.
+We have 
+$$\frac{du}{dt}=\frac{\partial u}{\partial q_{i}}\dot{q}_i+\frac{\partial u}{\partial p_{i}}\dot{p}_{i}+\frac{\partial u}{\partial t}$$
+Using Hamilton's equations , we get
+\begin{equation}
+    \frac{du}{dt}=[u,H]+\frac{\partial u}{\partial t}
+\end{equation}
+From this, we can see that if u is a constant of motion , we have 
+$$[H,u]=0$$
+Further, using Jacobi's identity we get 
+$$[H,[u,v]]=0$$
+for two constants of motion u and v.
+Thus, we can see that [u,v] is also a constant of motion.
+\subsection{Liouville's Theorem}
+
+\newpage
+\numberwithin{equation}{subsection}
+\section{Appendix}
+\subsection{The Stationary Value of a Functional}
+We have
+\begin{equation} \label{A1}
+    F=\int_{x_1}^{x_2}f(y,y',x)dx
+\end{equation}
+and
+\begin{equation} \label{A2}
+    \delta F=0
+\end{equation}
+Thus,
+\begin{equation}
+    \delta \int_{x_1}^{x_2}f(y,y',x)dx = 0
+\end{equation}
+Let $y(x,0)$ be the path for which the functional attains a stationary value.\\
+We want to consider a path which is slightly deviated from this one; so we take $y(x,\alpha)$ = $y(x,0)$ + $\alpha \eta (x)$ \footnote{$\eta (x)$ is some function and $\alpha$ is a constant}.\\
+Every path we choose must have the same value at the endpoints i.e. at $x_1$ and $x_2$.
+This tells is that $\eta (x_1)$=$\eta (x_2)$=$0$\\
+Let us denote 
+\begin{equation} \label{A3}
+    F(\alpha)=\int_{x_1}^{x_2}f(y(x,\alpha),y'(x,\alpha),x)dx
+\end{equation}
+ We see that
+\begin{equation} \label{A4}
+    \left[\frac{dF}{d\alpha}\right]_{\alpha =0} = 0
+\end{equation}
+We have
+\begin{equation} \label{A5}
+    \int_{x_1}^{x2}\left(\frac{\partial f}{\partial y} \frac{\partial y}{\partial \alpha} + \frac{\partial f}{\partial y' } \frac{\partial y'}{\partial \alpha} \right) dx = \frac{dF}{d\alpha}
+\end{equation}
+After substituting the suitable expression for $y$, we see that
+\begin{equation} \label{A6}
+    \frac{dF}{d\alpha}=\int_{x_1}^{x_2}\left(\frac{\partial f}{\partial y} - \frac{d}{dx} \frac{\partial f}{\partial y'} \right) \eta (x) dx 
+\end{equation}
+At $\alpha$=0, We must have the integral to be zero.\\
+Furthermore, the integrand has no explicit dependence on $\alpha$.\\
+Since $\eta$ is an arbitrary function only restricted by the boundary value,
+we can see that 
+\begin{equation}\label{A7}
+  \frac{d}{dx} \frac{\partial f}{\partial y'}- \frac{\partial f}{\partial y}=0
+\end{equation}
+\subsection{Invariance of the Lagragian upon addition of certain terms }
+Let $\mathscr{L}$ be the Lagrangian of a system.
+Consider $\mathscr{L}'$ to be $\mathscr{L}+\frac{dF}{dt}$ where F doesn't explicitly depend on the generalised velocities.\\
+We have 
+\begin{equation}\label{A}
+    \frac{d}{dt}\left(\frac{\partial }{\partial \dot{q}_{i}}\left[\frac{dF}{dt} \right]\right) - \frac{\partial}{\partial q_{i}}\left( \frac{dF}{dt} \right) =  \frac{d}{dt}\left( \frac{\partial \mathscr{L}}{\partial \dot{q}_{i}}\right)-\frac{\partial \mathscr{L}}{\partial q_{i}}
+\end{equation}
+We also have 
+$$ \frac{dF}{dt}= \frac{\partial F}{\partial q_{j}}\dot{q_{j}}+ \frac{\partial F}{\partial t}$$
+And
+$$\frac{\partial F}{\partial \dot{q_{i}}}=0$$
+Thus, using these in \ref{A} we get
+\begin{equation}
+   \frac{d}{dt}\left( \frac{\partial \mathscr{L}'}{\partial \dot{q}_{i}}\right)-\frac{\partial \mathscr{L}'}{\partial q_{i}}= \frac{\partial^{2}F}{\partial q_{i}\partial q_{j}} - \frac{\partial ^{2}F}{\partial q_{j}\partial q_{i}} 
+\end{equation}
+The RHS of the above equation is zero for F in the domain we are concerned with (Simply Connected).
+Thus, we obtain 
+$$\frac{d}{dt}\left( \frac{\partial \mathscr{L}'}{\partial \dot{q}_{i}}\right)-\frac{\partial \mathscr{L}'}{\partial q_{i}}=0$$
+\end{document}
