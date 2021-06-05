@@ -6,6 +6,8 @@
 \usepackage{fancyhdr}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
 \usepackage{mathrsfs}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \pagenumbering{arabic}
 \pagestyle{fancy}
@@ -377,6 +379,61 @@ $$[H,[u,v]]=0$$
 for two constants of motion u and v.
 Thus, we can see that [u,v] is also a constant of motion.
 \subsection{Liouville's Theorem}
+\subsubsection{Phase Plots}
+Phase plots are plots in q-p space which will be 2N dimensional(N is the number of q and corresponding p)
+These show the nature of the motion described by Hamilton's equations. \\
+We saw in the case of the Harmonic Oscillator, we obtained an ellipse in the q-p space (Figure 1).
+These phase plots are relevant to the study of Hamilton's equations and their consequences as we can directly study the nature of the motion using these $2N$ dimensional plots. The $2N$ dimensional objects defined by Hamilton's equations possess interesting properties which will be the subject of Liouville's theorem.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{Images/PhasePlotHO.png}
+    \caption{Phase Plot For a Harmonic Oscillator}
+    \label{fig:my_label}
+\end{figure}
+\subsubsection{Liouville's Theorem}
+Lioville's Theorem is applicable to statistical systems where an ensemble of states exists. It will also provide interesting results along the way.
+First off, let us define some quantities.\\
+$\rho$ is the 'density' of particles in $2N$ dimensional phase space.\\
+$\textbf{J}$ is the current density of the particles moving in the space.\\
+$\textbf{v}$ is the velocity of the particles in the space.\\
+We have 
+\begin{equation}
+    \textbf{J}=\rho\textbf{v}
+\end{equation}
+Also, we have the continuity equation
+\begin{equation}
+    \nabla\cdot\textbf{J}=-\frac{\partial \rho}{\partial t}
+\end{equation}
+where $\nabla\cdot$ is defined as
+$$ \nabla\cdot\textbf{F} := \frac{\partial F_{q_{i}}}{\partial q_{i}}+\frac{\partial F_{p_{i}}}{\partial p_{i}}
+$$
+Using this definition, we can proceed. First, we must find out $\nabla\cdot\textbf{v}$. From the above definition,
+$$  \nabla\cdot\textbf{v} = \frac{\partial \dot{q}_{i}}{\partial q_{i}}+\frac{\partial \dot{p}_{i}}{\partial p_{i}}                $$
+Putting in Hamilton's equation's for $\dot{q}_{i}$ and $\dot{p}_{i}$, we get 
+$$  \nabla\cdot\textbf{v}=\frac{\partial^{2}H}{\partial q_{i}\partial p_{i}}-\frac{\partial^{2}H}{\partial p_{i}\partial q_{i}}=0       $$
+Thus, we get 
+\begin{equation}
+    \nabla\cdot\textbf{v}=0
+\end{equation}
+We have 
+\begin{equation}
+    \nabla\cdot(\textbf{v}\rho)=\rho\nabla\cdot\textbf{v}+\textbf{v}\cdot\nabla\rho
+\end{equation}
+Thus, we get 
+\begin{equation}
+    \nabla\cdot(\textbf{v}\rho)=\textbf{v}\cdot\nabla\rho
+\end{equation}
+We have
+$$\textbf{v}\cdot\nabla\rho=\dot{q}_{i}\frac{\partial\rho}{\partial q_{i}}+\dot{p}_{i}\frac{\partial\rho}{\partial p_{i}}$$
+Combining this with the continuity equation, we get
+$$\dot{q}_{i}\frac{\partial\rho}{\partial q_{i}}+\dot{p}_{i}\frac{\partial\rho}{\partial p_{i}}+\frac{\partial\rho}{\partial t}=0$$
+So,we obtain 
+\begin{equation}
+    \frac{d\rho}{dt}=0
+\end{equation}
+The flow is incompressible.\\
+Liouville's theorem states that:
+\textit{The density of states in an ensemble of many identical states with different initial conditions is constant along every trajectory in phase space.}
 
 \newpage
 \numberwithin{equation}{subsection}
