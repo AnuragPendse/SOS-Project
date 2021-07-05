@@ -840,7 +840,7 @@ In quantum mechanics, we represent the momentum operator as
 \end{equation}
 Using this, we can see that the equation becomes
 \begin{equation}
-    (\partial^{mu}\partial_{\mu}+m^{2})\phi=0
+    (\partial^{\mu}\partial_{\mu}+m^{2})\phi=0
 \end{equation}
 Here, $\phi$ is the field which we are concerned with.\\
 For this problem, we can construct the following Lagrangian
