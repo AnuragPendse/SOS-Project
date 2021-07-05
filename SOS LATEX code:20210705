@@ -899,16 +899,16 @@ Thus, we will obtain
 \end{equation}
 Expanding $\bar{\delta}\phi$, we will obtain
 \begin{equation}
-    \delta S=\int{Omega}\partial_{\mu}\left(frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\delta\phi - T^{\mu\nu}\delta x_{\nu}\right)d^{4}x
+    \delta S=\int_{\Omega}\partial_{\mu}\left(\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\delta\phi - T^{\mu\nu}\delta x_{\nu}\right)d^{4}x
 \end{equation}
 Where $T^{\mu\nu}$ is defined as 
 \begin{equation}
-    T^{\mu\nu}=frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\partial^{\nu}\phi-g^{\mu\nu}\mathcal{L}
+    T^{\mu\nu}=\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\partial^{\nu}\phi-g^{\mu\nu}\mathcal{L}
 \end{equation}
 $T^{\mu\nu}$ is called the \textit{Stress-Energy Tensor}.\\
 We can define a current as 
 \begin{equation}
-    J^{\mu}=frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\delta\phi-t^{\mu\nu}\delta_{\nu}
+    J^{\mu}=\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\delta\phi-t^{\mu\nu}\delta_{\nu}
 \end{equation}
 We obtain
 \begin{equation}
